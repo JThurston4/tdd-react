@@ -1,4 +1,4 @@
-import { act, getAllByTestId, getByTestId, render } from '@testing-library/react';
+import { act, getAllByTestId, getByTestId, getNodeText, render } from '@testing-library/react';
 import React from 'react';
 import apiClient from '../services/apiClient';
 import Homes from './Homes';
@@ -46,3 +46,26 @@ it(`should show homes`, () => {
   expect(homes.length).toBeGreaterThan(0);
 });
 
+it(`should show home title`, () => {
+
+  const homeTitles = getAllByTestId(container, 'home-title');
+  expect(getNodeText(homeTitles[0])).toBe("test home 1");
+});
+
+it(`should show home image`, () => {
+
+  const homeImages = getAllByTestId(container, 'home-image');
+  expect(homeImages[0]).toBeTruthy();
+});
+
+it(`should show home location`, () => {
+
+  const homeLocations = getAllByTestId(container, 'home-location');
+  expect(homeLocations[0]).toBeTruthy();
+});
+
+it(`should show home price`, () => {
+
+  const homePrices = getAllByTestId(container, 'home-price');
+  expect(homePrices[0]).toBeTruthy();
+});
