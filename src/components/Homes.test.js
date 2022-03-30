@@ -61,11 +61,17 @@ it(`should show home image`, () => {
 it(`should show home location`, () => {
 
   const homeLocations = getAllByTestId(container, 'home-location');
-  expect(homeLocations[0]).toBeTruthy();
+  expect(getNodeText(homeLocations[0])).toBe('test location 1');
 });
 
 it(`should show home price`, () => {
 
   const homePrices = getAllByTestId(container, 'home-price');
-  expect(homePrices[0]).toBeTruthy();
+  expect(getNodeText(homePrices[0])).toBe('$1/night');
+});
+
+it(`should show home booking button`, () => {
+
+  const homeBookingBtns = getAllByTestId(container, 'home-booking-btn');
+  expect((homeBookingBtns[0])).toBeTruthy();
 });
